@@ -26,13 +26,15 @@ Virtual Machine diagram
 
 ![Virtual Machine diagram](https://www.docker.com/sites/default/files/VM%402x.png)
 
-Virtual machines run guest operating systems -- note the OS layer in each box. This is resource intensive[密集的], and the resulting disk image and application state is an entanglement[纠葛] of OS settings, system-installed dependencies, OS security patches, and other easy-to-lose, hard-to-replicate[复制] ephemera.
+Virtual machines run guest operating systems -- note the OS layer in each box. This is resource intensive[密集的], and the resulting disk image and application state is an entanglement[纠葛] of OS settings, system-installed dependencies, OS security patches, and <u>other easy-to-lose, hard-to-replicate[复制] ephemera</u>.
 
 Container diagram
 
 ![Virtual Machine diagram](https://www.docker.com/sites/default/files/Container%402x.png)
 
-Containers can share a single kernel, and the only information that needs to be in a container image is the executable and its package dependencies, which never need to be installed on the host system. These processes run like native processes, and you can manage them individually by running commands like **docker ps** -- just like you would run **ps** on Linux to see active processes. Finally, because they contain all their dependencies, there is no configuration entanglement[纠葛]; a containerized app "run anywhere."
- 
+Containers can share a single kernel, and the only information that needs to be in a container image is the executable and its package dependencies, which never need to be installed on the host system. These processes run like native processes, and you can manage them individually by running commands like **docker ps** -- just like you would run **ps** on Linux to see active processes. Finally, because they contain all their dependencies, there is no configuration entanglement[纠葛]; a containerized app "run anywhere".
 
+## Conclusion
+
+The unit of scale being an individual[个体], portable[可移植的] executable[可执行的] has vast implications[意义]. It means CI/CD can push updates to any part of a distributed application, system dependencies are not an issue, and resource density is increased. <u>Orchestration[编排] of scaling behavior is a matter of spinning up[卷起] new executables, not new VM hosts</u>.
 
